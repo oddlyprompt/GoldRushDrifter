@@ -1,3 +1,0 @@
-import type { GameState } from '../engine/types'
-import { useEffect, useRef } from 'react'
-export default function Log({state}:{state:GameState}){ const ref=useRef<HTMLDivElement>(null); useEffect(()=>{ref.current?.scrollTo(0,ref.current.scrollHeight)},[state.log.length]); const lines=state.log.slice(-60); return (<div className="card h-72 overflow-auto" ref={ref}>{lines.map((l,i)=>(<div key={i} className="logline">{l}</div>))}</div>) }
