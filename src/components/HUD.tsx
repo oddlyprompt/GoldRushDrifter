@@ -1,0 +1,2 @@
+import type { GameState } from '../engine/types'
+export default function HUD({state}:{state:GameState}){ return (<div className="card flex flex-wrap items-center gap-2 justify-between"><div className="font-semibold">Gold Rush Drifter</div><div className="text-sm">HP {state.player.hp}/{state.player.maxHp} | Ammo {state.player.ammo.revolver}/6 ({state.player.ammo.reserve}) | Coin {state.player.coin} | Prosperity {state.town.prosperity} | Time {new Date(state.world.time*1000).toISOString().substring(11,19)}</div></div>) }
