@@ -37,7 +37,7 @@ Since GitHub CLI isn't available, create the repository manually:
 ### Step 2: Push Code to GitHub
 
 ```bash
-cd /app/gold-rush-drifter
+cd /app
 git remote add origin https://github.com/YOUR_USERNAME/gold-rush-drifter.git
 git branch -M main
 git push -u origin main
