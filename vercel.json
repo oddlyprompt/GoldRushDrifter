@@ -4,10 +4,7 @@
     { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
   ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/robots.txt", "dest": "/robots.txt" },
-    { "src": "/(.*\\.[\\w]+)", "dest": "/$1" },         // any file with an extension
-    { "src": "/(.*)", "dest": "/index.html" }           // SPA fallback
+    { "src": "/(.*\\.[\\w]+)", "dest": "/$1" },   // let real files pass (js, css, images, etc.)
+    { "src": "/(.*)", "dest": "/index.html" }     // SPA fallback
   ]
 }
