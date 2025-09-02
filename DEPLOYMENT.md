@@ -111,7 +111,7 @@ The `vercel.json` file is already configured for proper routing.
 3. **Enhance**: Consider adding more encounter types, items, or buildings
 4. **Community**: Share your deployed game with players
 
-**Game Repository**: `/app/gold-rush-drifter/`
+**Game Repository**: `/app/` (root directory)
 **Live Demo**: Will be available after Vercel deployment
 **itch.io Build**: Automated via GitHub Actions
 
