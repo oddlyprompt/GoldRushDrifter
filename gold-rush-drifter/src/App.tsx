@@ -1,0 +1,7 @@
+import { useEffect } from 'react'
+import { useGame } from './engine/store'
+import HUD from './components/HUD'
+import Log from './components/Log'
+import Choices from './components/Choices'
+import './styles.css'
+export default function App(){ const { state, input, setInput, act, tick }=useGame(); useEffect(()=>{ const id=setInterval(()=>{ if(state.flags.paused) return; if(state.encounter?.active){ tick(state.world.autoTickCap) } }, state.world.tickSeconds*1000); return ()=>clearInterval(id) }, [state.flags.paused, state.encounter?.active, state.world.tickSeconds, tick]); function submit(e:React.FormEvent){ e.preventDefault(); if(!input.trim()) return; act(input.trim()); setInput('') } return (<div className="max-w-4xl mx-auto p-4 md:p-8 space-y-4"><HUD state={state}/><div className="card"><p className="mb-2">You stand on Main Street in <b>{state.town.name}</b>. The Sheriff's board lists fresh bounties. The wind smells of dust and iron.</p><Choices/></div><Log state={state}/><form onSubmit={submit} className="card flex items-center gap-2"><input value={input} onChange={e=>setInput(e.target.value)} placeholder="Type a command (help, map, bounty std, attack, reload, flee)" className="flex-1 border rounded-xl px-3 py-2"/><button className="btn btn-primary" type="submit">Send</button></form><div className="text-xs text-stone-600">Tip: Press <kbd>1</kbd> to start a bounty, then <kbd>2</kbd> to fire, <kbd>3</kbd> to reload, <kbd>4</kbd> to flee.</div></div>) }
